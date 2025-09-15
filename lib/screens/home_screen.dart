@@ -15,13 +15,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<String> icons = [
-    'assets/swap_thin.svg',
-    'assets/download.svg',
-    'assets/swap_vert.svg',
-    'assets/multi_money.svg',
+  final quickActionsData = [
+    ['assets/swap_thin.svg', 'Transfer'],
+    ['assets/download.svg', 'Receive'],
+    ['assets/swap_vert.svg', 'Swap'],
+    ['assets/multi_money.svg', 'Earn'],
   ];
-  final List<String> texts = ['Transfer', 'Receive', 'Swap', 'Earn'];
 
   final activitiesData = [
     ['December 30', '+\$1,200.25'],
@@ -41,11 +40,14 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: CryptoAppBar(),
         body: Stack(
           children: [
+            // * Top polygon
             Positioned(
               right: -30,
+              top: -15,
               child: SvgPicture.asset('assets/home_screen_top_polygon.svg'),
             ),
 
+            // * Bottom polygon
             Positioned(
               left: -30,
               bottom: -15,
@@ -62,9 +64,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: width * 0.35),
+                  SizedBox(height: height * 0.13),
                   AccountBalanceCard(),
-                  SizedBox(height: 29),
+                  SizedBox(height: height * 0.03),
 
                   // * "Quick actions"
                   Text(
@@ -82,21 +84,23 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: double.infinity,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: 4,
+                      itemCount: quickActionsData.length,
                       itemBuilder: (context, index) {
                         return Padding(
-                          padding: index != icons.length - 1
-                              ? EdgeInsets.only(right: width * 0.08)
+                          padding: index != quickActionsData.length - 1
+                              ? EdgeInsets.only(right: width * 0.05)
                               : const EdgeInsets.only(right: 0.0),
                           child: QuickActions(
-                            actionIcon: SvgPicture.asset(icons[index]),
-                            actionText: texts[index],
+                            actionIcon: SvgPicture.asset(
+                              quickActionsData[index][0],
+                            ),
+                            actionText: quickActionsData[index][1],
                           ),
                         );
                       },
                     ),
                   ),
-                  SizedBox(height: 53),
+                  SizedBox(height: height * 0.05),
 
                   Text(
                     'My Activities',

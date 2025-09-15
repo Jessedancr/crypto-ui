@@ -1,6 +1,8 @@
+import 'package:cryptoui/screens/login_screen.dart';
 import 'package:cryptoui/widgets/crypto_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -16,7 +18,12 @@ class WelcomeScreen extends StatelessWidget {
             // * Top right polygon
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: [SvgPicture.asset('assets/Polygon.svg')],
+              children: [
+                Hero(
+                  tag: 'polygon',
+                  child: SvgPicture.asset('assets/Polygon.svg'),
+                ),
+              ],
             ),
 
             // * Logo and caption
@@ -40,7 +47,7 @@ class WelcomeScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: CryptoButton(
                 buttonText: 'Continue',
-                onTap: () => Navigator.pushNamed(context, '/login'),
+                onTap: () => Get.toNamed('/login'),
               ),
             ),
           ],
