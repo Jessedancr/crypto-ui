@@ -1,4 +1,4 @@
-import 'package:cryptoui/screens/home_screen.dart';
+import 'package:cryptoui/screens/crypto_app.dart';
 import 'package:cryptoui/widgets/crypto_button.dart';
 import 'package:cryptoui/widgets/crypto_textfield.dart';
 import 'package:flutter/material.dart';
@@ -61,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         CryptoButton(
                           buttonText: 'Login',
                           onTap: () => Get.to(
-                            () => HomeScreen(),
+                            () => CryptoApp(),
                             transition: Transition.fadeIn,
                             duration: Duration(milliseconds: 400),
                           ),

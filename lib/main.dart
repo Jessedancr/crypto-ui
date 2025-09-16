@@ -1,4 +1,4 @@
-import 'package:cryptoui/screens/home_screen.dart';
+import 'package:cryptoui/screens/crypto_app.dart';
 import 'package:cryptoui/screens/login_screen.dart';
 import 'package:cryptoui/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: '/home',
-          page: () => HomeScreen(),
+          page: () => CryptoApp(),
           transition: Transition.fadeIn,
           transitionDuration: Duration(milliseconds: 400),
         ),

@@ -3,16 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CryptoNavBar extends StatelessWidget {
-  const CryptoNavBar({super.key});
+  final int selectedIndex;
+  final void Function(int)? onTap;
+  const CryptoNavBar({
+    super.key,
+    required this.selectedIndex,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      onTap: onTap,
+
       backgroundColor: Colors.transparent,
       type: BottomNavigationBarType.fixed,
-      currentIndex: 2,
+      currentIndex: selectedIndex,
       elevation: 0.0,
-      unselectedItemColor: Colors.white,
+      unselectedItemColor: Colors.grey,
       items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.home, color: Colors.white),
