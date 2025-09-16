@@ -40,7 +40,7 @@ class _CryptoAppState extends State<CryptoApp> {
           onTap: _navigateBottomBar,
           selectedIndex: selectedIndex,
         ),
-        appBar: CryptoAppBar(),
+        appBar: selectedIndex == 0 ? CryptoAppBar() : null,
         body: screens[selectedIndex],
       ),
     );

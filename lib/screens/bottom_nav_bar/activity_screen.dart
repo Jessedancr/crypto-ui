@@ -17,7 +17,6 @@ class ActivityScreen extends StatefulWidget {
 class _ActivityScreenState extends State<ActivityScreen> {
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -27,15 +26,15 @@ class _ActivityScreenState extends State<ActivityScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: height * 0.1),
-            AccountBalanceSmallCard(),
             SizedBox(height: height * 0.06),
+            AccountBalanceSmallCard(),
+            SizedBox(height: height * 0.03),
 
             // * CHART GOES HERE
             CryptoChart(),
 
             // * DUMMY TEXT
-            SizedBox(height: height * 0.08),
+            SizedBox(height: height * 0.03),
             Text(
               'Lorem Ipsum Dolor',
               style: GoogleFonts.righteous(
@@ -48,7 +47,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
             Text(
               moreInfoDummyText,
               style: GoogleFonts.righteous(
-                fontSize: 10,
+                fontSize: 9,
                 color: Color(0xFFFFFEFE),
               ),
             ),
@@ -56,10 +55,14 @@ class _ActivityScreenState extends State<ActivityScreen> {
             // * Logo + see more
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Transform.translate(
-                  offset: Offset(-60, 10),
-                  child: SvgPicture.asset('assets/activity_polygon.svg'),
+                  offset: Offset(-60, -10),
+                  child: SvgPicture.asset(
+                    'assets/activity_polygon.svg',
+                    height: height * 0.25,
+                  ),
                 ),
                 Row(
                   children: [

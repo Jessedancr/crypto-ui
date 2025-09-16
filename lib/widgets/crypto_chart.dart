@@ -19,7 +19,7 @@ class CryptoChart extends StatelessWidget {
       [50.0, 125.0],
     ];
     return AspectRatio(
-      aspectRatio: 2.0,
+      aspectRatio: 1.3,
       child: BarChart(
         BarChartData(
           maxY: 150,
